@@ -1,0 +1,49 @@
+app:
+  name: toolsForBiology
+
+spring:
+  messages:
+    encoding: UTF-8
+  security:
+    enabled: false
+  datasource:
+    url: jdbc:postgresql://localhost:5432/pascalbardeau?useUnicode=true&characterEncoding=utf-8
+    username: pascalbardeau
+    password:
+    driver-class-name: org.postgresql.Driver
+    initialize: true
+    minimumIdle: 3
+    maximumPoolSize: 5
+    validationQuery: SELECT 1
+    initialSize: 1
+    maxActive: 3
+    testWhileIdle: true
+    testOnBorrow: true
+    sqlScriptEncoding: UTF-8
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    format_sql: true
+    generate-ddl: true
+    hibernate.ddl-auto: create-drop
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: true
+        default_schema: public
+        flushMode: AUTO
+        dialect: org.hibernate.dialect.PostgreSQL94Dialect
+        connection:
+          charSet: UTF-8
+server:
+  port: 9000
+  contextPath:
+
+logging:
+  level:
+    org.springframework.web: ERROR
+    com.toolsforbiology: DEBUG
+    org.hibernate.SQL: ERROR
+  pattern:
+    file: "%d{yyyy-MM-dd HH:mm:ss} %X{mdcData}%5p [%thread] %-5level %logger{36} - %msg%n"
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %X{mdcData} %5p - %msg%n"
