@@ -1,7 +1,6 @@
 package com.toolsforbiology.services;
 
-import com.toolsforbiology.repository.IPrimerRepository;
-import com.toolsforbiology.repository.Primer;
+import com.toolsforbiology.repository.PrimerRepository;
 
 import java.util.Collection;
 import java.util.List;
@@ -10,23 +9,23 @@ import java.util.List;
  * Created by pascalbardeau on 06/09/2017.
  */
 public interface IPrimerService {
-    Collection<Primer> getAllPrimers();
+    Collection<PrimerRepository> getAllPrimers();
 
-    Primer getPrimerById(Long id);
+    PrimerRepository getPrimerById(Long id);
 
-    Primer createPrimer(Primer primer);
+    PrimerRepository createPrimer(PrimerRepository primerRepository);
 
-    Primer updatePrimer(Primer primer);
+    PrimerRepository updatePrimer(PrimerRepository primerRepository);
 
     void deletePrimer(Long id);
 
-    List<Primer> getPrimersByGene(String gene);
+    List<PrimerRepository> getPrimersByGene(String gene);
 
-    Primer getPrimerByPrimerNameAndOrientation(String primerName, String orientation);
+    PrimerRepository getPrimerByPrimerNameAndOrientation(String primerName, String orientation);
 
-    IPrimerRepository getPrimerRepository();
+    PrimerRepository getPrimerRepository();
 
-    void setPrimerRepository(IPrimerRepository primerRepository);
+    void setPrimerRepository(PrimerRepository primerRepository);
 
     // todo : http://sqli.developpez.com/tutoriels/spring/construire-backend-springboot/#LIII-A
 }

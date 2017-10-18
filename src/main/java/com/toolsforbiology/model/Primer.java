@@ -1,11 +1,11 @@
-package com.toolsforbiology.repository;
-
+package com.toolsforbiology.model;
 
 import javax.persistence.*;
 
 /**
- * Created by pascalbardeau on 06/09/2017.
+ * Created by pascalbardeau on 11/10/2017.
  */
+
 @Entity
 @Table(name = "primer")
 public class Primer {

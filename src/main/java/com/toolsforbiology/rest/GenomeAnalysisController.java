@@ -1,8 +1,7 @@
-package com.toolsforbiology.controller;
+package com.toolsforbiology.rest;
 
-import com.toolsforbiology.repository.Primer;
-import com.toolsforbiology.repository.User;
-import com.toolsforbiology.services.IPrimerService;
+import com.toolsforbiology.model.Primer;
+import com.toolsforbiology.services.PrimerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,13 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class GenomeAnalysisController {
 
     @Autowired
-    private IPrimerService primerService;
-
-    @RequestMapping("/test")
-    public User user() {
-        return new User("Pascal", "skoolpa2");
-    }
-
+    private PrimerService primerService;
 
     @RequestMapping("/primer")
     public Primer createPrimer(@RequestBody Primer primer) {
