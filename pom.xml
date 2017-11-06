@@ -24,8 +24,9 @@
         <java.version>1.8</java.version>
         <hibernate-validator.version>5.4.1.Final</hibernate-validator.version>
         <hibernate.version>5.2.10.Final</hibernate.version>
-        <nimbus-jose-jwt.version>4.39.2</nimbus-jose-jwt.version>
-        <mapstruct.version>1.1.0.Final</mapstruct.version>
+        <jjwt.version>0.9.0</jjwt.version>
+        <org.mapstruct.version>1.2.0.Beta2</org.mapstruct.version>
+
     </properties>
 
     <dependencies>
@@ -90,22 +91,39 @@
 
         <!-- JWT -->
         <dependency>
-            <groupId>com.nimbusds</groupId>
-            <artifactId>nimbus-jose-jwt</artifactId>
-            <version>${nimbus-jose-jwt.version}</version>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>${jjwt.version}</version>
         </dependency>
+
         <dependency>
             <groupId>joda-time</groupId>
             <artifactId>joda-time</artifactId>
         </dependency>
         <dependency>
             <groupId>org.mapstruct</groupId>
-            <artifactId>mapstruct-jdk8</artifactId>
-            <version>${mapstruct.version}</version>
+            <artifactId>mapstruct</artifactId>
+            <version>${org.mapstruct.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct-processor</artifactId>
+            <version>${org.mapstruct.version}</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>commons-codec</groupId>
             <artifactId>commons-codec</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.16</version>
         </dependency>
     </dependencies>
 
