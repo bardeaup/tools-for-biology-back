@@ -1,6 +1,7 @@
 package com.toolsforbiology.security.model;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
@@ -10,10 +11,10 @@ import java.util.Date;
  * Created by pascalbardeau on 25/10/2017.
  */
 
-
+@EqualsAndHashCode(of = {"name"})
 @Data
 @Entity
-@Table(name = "AUTHORITY")
+@Table(name = "authority")
 public class Authority implements GrantedAuthority {
 
     @Id

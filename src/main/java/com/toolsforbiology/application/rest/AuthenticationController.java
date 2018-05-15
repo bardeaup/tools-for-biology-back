@@ -20,7 +20,7 @@ public class AuthenticationController {
     @Autowired
     UserService userService;
 
-    @RequestMapping(method = RequestMethod.POST, value = "/sign-in")
+    @RequestMapping(method = RequestMethod.POST, value = "/register")
     public ResponseEntity<?> createUser(@RequestBody UserDTO userDto) {
         return ResponseEntity.status(HttpStatus.OK).body(createUser(userDto));
     }

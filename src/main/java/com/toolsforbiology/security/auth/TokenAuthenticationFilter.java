@@ -18,7 +18,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -35,35 +34,12 @@ public class TokenAuthenticationFilter extends OncePerRequestFilter {
     @Autowired
     UserDetailsService userDetailsService;
 
-    /*
-     * The below paths will get ignored by the filter
-     */
-    public static final String ROOT_MATCHER = "/";
-    public static final String FAVICON_MATCHER = "/favicon.ico";
-    public static final String HTML_MATCHER = "/**/*.html";
-    public static final String CSS_MATCHER = "/**/*.css";
-    public static final String JS_MATCHER = "/**/*.js";
-    public static final String IMG_MATCHER = "/images/*";
-    public static final String LOGIN_MATCHER = "/auth/login";
-    public static final String LOGOUT_MATCHER = "/auth/logout";
-
-    private List<String> pathsToSkip = Arrays.asList(
-            ROOT_MATCHER,
-            HTML_MATCHER,
-            FAVICON_MATCHER,
-            CSS_MATCHER,
-            JS_MATCHER,
-            IMG_MATCHER,
-            LOGIN_MATCHER,
-            LOGOUT_MATCHER
-    );
-
     @Override
     public void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws IOException, ServletException {
 
 
         String authToken = tokenHelper.getToken(request);
-        if (authToken != null && !skipPathRequest(request, pathsToSkip)) {
+        if (authToken != null) {
             // get username from token
             try {
                 String username = tokenHelper.getUsernameFromToken(authToken);

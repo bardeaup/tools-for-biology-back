@@ -58,3 +58,16 @@ jwt:
   refresh:
     expires_in: 28800
   secret: 3AfnKZR2ltF4
+
+
+message.login.disabled: "Votre compte est verrouillé. Veuillez prendre contact avec le référent de votre entité pour déverrouiller ce dernier."
+message.login.email: "L'adresse e-mail n'existe pas"
+message.login.password: "Le mot de passe est incorrect"
+message.login.password.reinit: "Vous devez réinitialiser votre mot de passe."
+message.login.blocage.temporel: "Vous avez atteint le nombre maximal de tentatives. Votre compte est bloqué pendant 1h, veuillez attendre ce délai pour vous authentifier de nouveau."
+AbstractUserDetailsAuthenticationProvider.disabled: "Votre compte est verrouillé. Veuillez prendre contact avec le référent de votre entité pour déverrouiller ce dernier."
+AbstractUserDetailsAuthenticationProvider.locked: "Votre compte est verrouillé. Veuillez prendre contact avec le référent de votre entité pour déverrouiller ce dernier."
+
+security:
+  ignored:
+  - "*.bundle.*"

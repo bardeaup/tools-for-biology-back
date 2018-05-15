@@ -35,12 +35,9 @@ public class AuthenticationSuccessHandler extends SimpleUrlAuthenticationSuccess
 
         User utilisateur = (User) authentication.getPrincipal();
 
-        // creation token JWT refresh
-        String jwsRefresh = tokenHelper.generateRefreshToken(utilisateur);
-        response.addHeader(HEADER_REFRESH_STRING, TOKEN_PREFIX + " " + jwsRefresh);
-
-        // creation token JWT access
+        // creation token JWT
         String jws = tokenHelper.generateToken(utilisateur);
+        response.addHeader(HEADER_AUTH_STRING, TOKEN_PREFIX + " " + jws);
 
     }
 }

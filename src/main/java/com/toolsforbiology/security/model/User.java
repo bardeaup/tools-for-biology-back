@@ -2,7 +2,7 @@ package com.toolsforbiology.security.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.EqualsAndHashCode;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -13,10 +13,10 @@ import java.util.List;
 /**
  * Created by pascalbardeau on 11/10/2017.
  */
+@EqualsAndHashCode(of = {"username"})
 @Data
-@NoArgsConstructor
 @Entity
-@Table(name = "USER", schema = "public")
+@Table(name = "USER", schema = "public", uniqueConstraints = @UniqueConstraint(name = "index_username", columnNames = {"username"}))
 public class User implements UserDetails {
 
     @Id
@@ -37,9 +37,7 @@ public class User implements UserDetails {
     @JoinTable(name = "user_authority",
             joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "authority_id", referencedColumnName = "id"))
-
     private List<Authority> authorities;
-
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

@@ -22,6 +22,13 @@ public class UserService {
     @Autowired
     UserMapper userMapper;
 
+    public User findByEmail(String email) {
+        return userRepository.findByEmail(email);
+    }
+
+    ;
+
+
     public CustomResponseObject createUser(UserDTO userDTO) {
 
         CustomResponseObject responseObject = new CustomResponseObject();
